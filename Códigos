@@ -1,0 +1,65 @@
+while True:
+    print("-------------------------------")
+    print("  Seja bem-vindo(a) ao BRAIT INVESTMENTS  ")
+    print("    SIMULADOR DE EMPRÉSTIMO    ")
+    print("-------------------------------")
+    print("1-TESOURO PREFIXADO 2024")
+    print("2-TESOURO PREFIXADO 2026")
+
+    opcao = str(input("Com qual titulo você gostaria de iniciar a simulação?: "))
+
+   # definindo as opções de investimentos
+    if opcao == '1':
+        porcentagem = 0.0095
+        meses = 32
+        b3 = 0.003
+    
+    else :
+        porcentagem = 0.0097
+        meses = 50
+        b3 = 0.005
+ 
+    # solicitando informações sobre o investimento
+    print(" ")
+    valor = float(input("qual valor você deseja investir?: "))
+    print("                                                                                                                                                     ")
+    parcelas = int(input("Se você for investir todo mês, quanto seria?: "))
+    
+    # calculando os valores do investimento
+    cont = 1
+    total = 0
+
+    while cont <= meses:
+     total =  (total * porcentagem) + (total + parcelas) 
+     cont  = cont + 1
+    #
+    cont = 0
+    somaparcela = 0 
+    
+    while cont <= meses:
+     somaparcela =  parcelas + somaparcela
+     cont  = cont + 1 
+    ##
+    bruto =  total + valor
+    lucro_real = bruto - somaparcela
+    val_ir = lucro_real / 100 * 15
+    ##
+    taxab3 = bruto * b3
+
+    liquido = bruto - (taxab3 + val_ir)
+
+    print("-------------------------------")
+    print("   RESULTADO DA SIMULAÇÃO      ")
+    print("-------------------------------")
+    print("Valor bruto: ", bruto )
+    print("I.R: ", val_ir)
+    print("Taxa B3: ", taxab3)
+    print("Valor liquido: ", liquido) 
+    print("-------------------------------")
+    opcao = str(input("Deseja realizar outra simulação? s/n"))
+
+    # se a opção for igual a "n" o programa é encerrado
+    if opcao == 'n':
+        break
+
+print("Programa encerrado")
